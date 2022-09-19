@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Login.Register"
+             Title="Register">
+    <ContentPage.Content>
+        <StackLayout Padding="35">
+            <Image x:Name="PreviewPic" Source="registration_pic.png" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                    </TapGestureRecognizer>
+                </Image.GestureRecognizers>
+
+            </Image>
+            <Entry IsTextPredictionEnabled="True" Keyboard="Chat" Placeholder="Name.." x:Name="txtName"></Entry>
+            
+            <Entry Keyboard="Numeric" TextChanged="txtPhone_TextChanged" Placeholder="Phone No.." x:Name="txtPhone"></Entry>
+            <Label x:Name="lblPhoneValidation" IsVisible="False"></Label>
+            
+            <Entry Keyboard="Email" TextChanged="txtEmail_TextChanged" Placeholder="Email.." x:Name="txtEmail"></Entry>
+            <Label x:Name="lblEmailValidation" IsVisible="true"></Label>
+            
+            <Entry IsPassword="True" TextChanged="txtPassword_TextChanged" Placeholder="Password.." x:Name="txtPassword"></Entry>
+            <Label x:Name="lblPasswordValidation" IsVisible="False"></Label>
+
+            <Entry IsPassword="True" Placeholder="Conmfirm Password.." x:Name="txtCPassword"></Entry>
+            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
+            <Button Text="Register" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

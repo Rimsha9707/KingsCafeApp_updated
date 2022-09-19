@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Customer.OrderConfirmation"
+             Title=" Order Confirmation">
+    <ContentPage.Content>
+        <ScrollView >
+
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="15" >
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="True"></ActivityIndicator>
+                <Grid ColumnDefinitions="200*,700*" RowDefinitions="30,30,50">
+                    <Label  Grid.Row="0" Grid.Column="0" Text="Order ID : " />
+                    <Label Grid.Row="1" Grid.Column="0" Text="Customer Name: " />
+                    <Label Grid.Row="2" Grid.Column="0" Text="Order Date : " />
+
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="lblID" />
+                    <Label Grid.Row="1" Grid.Column="1" x:Name="lblCustomer" />
+                    <Label Grid.Row="2" Grid.Column="1" x:Name="lblDate" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

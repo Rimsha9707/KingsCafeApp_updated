@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:helper="clr-namespace:KingsCafeApp.Helpers"
+             x:Class="KingsCafeApp.Views.Customer.CartPage"
+             Title="Invoice Details" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="Confirm order" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout VerticalOptions="Center" Orientation="Horizontal" Padding="8" BackgroundColor="{StaticResource Primary}">
+                    <Label HorizontalOptions="EndAndExpand" TextColor="White"  FontSize="Title" Text="Total Bill Rs.  : "/>
+                    <Label HorizontalOptions="End"  TextColor="White"  FontSize="Title" Text="480"  x:Name="lblTotal"/>
+                </StackLayout>
+
+                <ListView SeparatorVisibility="Default" SeparatorColor="{StaticResource Primary}" x:Name="DataList" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="70,*,40" RowDefinitions="20,20" Padding="2">
+
+                                    <Image Source="{Binding image}" Grid.RowSpan="2" Grid.Column="0" />
+                                    <Label TextColor="Black" Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
+                                    <Label TextColor="Black" Grid.Row="1" Grid.Column="1" Text="{Binding Detail}" />
+
+                                    <StackLayout Spacing="0" HorizontalOptions="CenterAndExpand" Grid.RowSpan="2" Grid.Column="2">
+                                        <ImageButton  x:Name="btnRemove" Clicked="btnRemove_Clicked" CommandParameter="{Binding .}">
+                                            <ImageButton.Source>
+                                                <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helper:FontAwesome.Remove }" Color="Red" />
+                                            </ImageButton.Source>
+                                        </ImageButton>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

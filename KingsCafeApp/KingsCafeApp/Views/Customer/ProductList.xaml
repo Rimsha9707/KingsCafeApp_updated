@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Customer.ProductList">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  IconImageSource="cart_icon.png"  Clicked="ToolbarItem_Clicked_1"></ToolbarItem>
+        <ToolbarItem Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="24">
+            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"></ActivityIndicator>
+                <CollectionView x:Name="DataList" ItemsLayout="VerticalGrid, 2" SelectionMode="Single" SelectionChanged="DataList_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid RowDefinitions="150,20,20,20,40,40" ColumnDefinitions="70*,80*">
+                            <Image Margin="2,0,2,0" Grid.ColumnSpan="2" Grid.Row="0"  Source="{Binding Image}" Aspect="AspectFill"  />
+                            <Label Margin="2,0,2,0" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Name}" FontAttributes="Bold"/>
+                            <Label Margin="2,0,2,0" Grid.Column="0" Grid.Row="2" Text="Price Rs." FontAttributes="Bold" />
+                            <Label Margin="2,0,2,0" Grid.Column="1" Grid.Row="2"  Text="{Binding SalePrice}" />
+                            <Button Margin="2,0,2,0" Grid.ColumnSpan="2" Grid.Row="4" Text="Add to Cart" Clicked="Button_Clicked" CommandParameter="{Binding .}" />
+                            <Button Margin="2,0,2,0" Grid.ColumnSpan="2" Grid.Row="5" Text="View Detail" Clicked="Button_Clicked_1" CommandParameter="{Binding .}"   />
+                            <Label Margin="2,0,2,0" Grid.Column="1" Grid.Row="6"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--<ListView x:Name="DataList" ItemTapped="DataList_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding ProName}" Detail="{ Binding Details}" ImageSource="{Binding Picture}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

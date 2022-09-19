@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Admin.CategoryDetails"
+             Title="Category Details">
+    <ContentPage.Content>
+        <ScrollView >
+
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="15" >
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="True"></ActivityIndicator>
+                <Image x:Name="FOOD_CATEGORIES_PICTURE"  Source="category_picker.png"></Image>
+                <Grid ColumnDefinitions="200*,200*" Padding="20" RowDefinitions="30,30">
+                    <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource Primary}" Text="Category Name: "></Label>
+                    <Label Grid.Row="0" Grid.Column="1" FontSize="Medium" x:Name="FOOD_CATEGORIES_NAME"></Label>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

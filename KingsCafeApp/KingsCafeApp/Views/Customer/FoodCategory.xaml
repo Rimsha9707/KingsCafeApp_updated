@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Customer.FoodCategory"
+             Title="Category">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  IconImageSource="cart_icon.png" Clicked="ToolbarItem_Clicked_1" ></ToolbarItem>
+        <ToolbarItem Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="24">
+            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"></ActivityIndicator>
+            <ListView x:Name="DataList" ItemTapped="DataList_ItemTapped" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="8">
+                                <Grid>
+                                    <Image WidthRequest="200"  HeightRequest="200" HorizontalOptions="FillAndExpand" Source="{Binding Image}"></Image>
+                                    <Label BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="20"  Text="{Binding Name}"></Label>
+                                </Grid>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

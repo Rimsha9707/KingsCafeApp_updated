@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.LoginSystem.Userlist" 
+             Title="UserList"
+             >
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
+            <ListView x:Name="DataList" ItemTapped="DataList_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding Name}" Detail="{Binding Email}" ImageSource="pic.png">
+                            
+                        </ImageCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

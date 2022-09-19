@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Admin.Edit_Category" 
+             Title="Edit Category">
+    <ContentPage.Content>
+        <StackLayout Padding="34" VerticalOptions="CenterAndExpand">
+            <Image x:Name="PreviewPic" Source="category_picker.png" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Entry x:Name="txtCatName" Placeholder="Category Name" Keyboard="Chat"/>
+            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
+            <Button Text="Edit Category" x:Name="btnCat" Clicked="btnCat_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

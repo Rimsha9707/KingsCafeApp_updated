@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.StartPage"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <!--<Image Source="back.jpg" Aspect="AspectFill"/>-->
+            <StackLayout Padding="34" VerticalOptions="CenterAndExpand">
+
+                <Image Source="logo.png" x:Name="image" IsAnimationPlaying="True"/>
+                <Label  HorizontalOptions="CenterAndExpand" Text="King's Cafe" TextColor="#ff914d" FontSize="40"/>
+                <Label  HorizontalOptions="CenterAndExpand" Text="Taste ka bhndaarrr" TextColor="#ff914d" FontSize="20" Margin="0,0,0,50"/>
+                <Button Text="Get Started" BorderWidth="4" BorderColor="#ff914d" CornerRadius="12"  BackgroundColor="#ff914d" TextColor="White" x:Name="btnGetStarted" Clicked="btnGetStarted_Clicked"/>
+
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand">
+                    <Label Text="Admin" TextColor="#ff914d" FontSize="16">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text=" | " TextColor="#ff914d" />
+                    <Label Text="Worker" TextColor="#ff914d" FontSize="16">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label> 
+                    <Label Text=" | " TextColor="#ff914d" />
+                    <Label Text="Rider" TextColor="#ff914d" FontSize="16">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text=" | " TextColor="#ff914d" />
+                    <Label Text="Reset Default" TextColor="#ff914d" FontSize="16">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </StackLayout>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

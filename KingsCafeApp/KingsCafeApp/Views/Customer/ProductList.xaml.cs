@@ -18,13 +18,14 @@ namespace KingsCafeApp.Views.Customer
             InitializeComponent();
             try
             {
-                LoadingInd.IsRunning = true;
+                //LoadingInd.IsRunning = true;
                 LoadData(id);
-                LoadingInd.IsRunning = false;
+                //LoadingInd.IsRunning = false;
+                this.BindingContext = this;
             }
             catch (Exception ex)
             {
-                LoadingInd.IsRunning = false;
+                //LoadingInd.IsRunning = false;
                  DisplayAlert("Error", "Something went wrong, please try again later. \nError: " + ex.Message, "Ok");
             }
 

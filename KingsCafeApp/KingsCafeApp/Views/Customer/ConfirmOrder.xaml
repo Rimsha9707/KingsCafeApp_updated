@@ -4,38 +4,28 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:helper="clr-namespace:KingsCafeApp.Helpers"
-             xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              mc:Ignorable="d"
              x:Class="KingsCafeApp.Views.Customer.ConfirmOrder"
              Title="Order Confirmation" BackgroundImageSource="BG6.jpg">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Reset" Clicked="ToolbarItem_Clicked" />
-    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Padding="24" Spacing="24" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+            <StackLayout Padding="24" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
 
-                <Label/>
-                <Label HorizontalOptions="CenterAndExpand" Text="The Last Step! Your order is almost ready please confirm where do you want to deliver this order?" />
-                <Label />
+                <Entry IsTextPredictionEnabled="True" Keyboard="Chat" Placeholder="Name.." x:Name="txtName"></Entry>
 
-                <map:Map x:Name="MapView" HeightRequest="600" HorizontalOptions="FillAndExpand" MapType="Street" />
+                <Entry Keyboard="Numeric" TextChanged="txtPhone_TextChanged" Placeholder="Phone No.." x:Name="txtPhone"></Entry>
+                <Label x:Name="lblPhoneValidation" IsVisible="False"></Label>
 
+                <Entry Keyboard="Email" TextChanged="txtEmail_TextChanged" Placeholder="Email.." x:Name="txtEmail"></Entry>
+                <Label x:Name="lblEmailValidation" IsVisible="true"></Label>
+
+                <Entry Placeholder="Address.." x:Name="txtAddress"></Entry>
+               
                 <ActivityIndicator x:Name="LoadingInd" IsRunning="False" />
-
-
-                <!--<Button Text="Get Location" x:Name="btnFetch" Clicked="btnFetch_Clicked_1"/>
-                <Button Text="My Current Location" x:Name="btnCurrentLocation" Clicked="btnCurrentLocation_Clicked_1"/>
-                <Button Text="My Profile Address" x:Name="btnProfileLocation" Clicked="btnProfileLocation_Clicked"/>
-
-
-                <Editor Placeholder="Please enter new address here...." x:Name="txtNewAddress" HeightRequest="80" IsVisible="false"/>
-                <Editor Placeholder="Please enter Customer Name here...." x:Name="txtName" HeightRequest="80" IsVisible="false"/>
-                <Button Text="Confirm Order" Clicked="btnConfirm_Clicked" IsVisible="false" x:Name="btnConfirm"/>
-          
-                -->
-                </StackLayout>
+                <Button Text="Confirm Order" Clicked="btnConfirm_Clicked" x:Name="btnConfirm"/>
+            </StackLayout>
 
         </ScrollView>
     </ContentPage.Content>

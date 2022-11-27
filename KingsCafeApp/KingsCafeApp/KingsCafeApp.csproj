@@ -7,15 +7,13 @@
 
   <ItemGroup>
     <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
-    <PackageReference Include="FirebaseDatabase.net" Version="4.0.7" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />  
-    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />  
-    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,8 +38,8 @@
     <Compile Update="Views\Admin\ManageCategory.xaml.cs">
       <DependentUpon>ManageCategory.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Customer\OrderConfirmation.xaml.cs">
-      <DependentUpon>OrderConfirmation.xaml</DependentUpon>
+    <Compile Update="Views\Customer\OrderSuccess.xaml.cs">
+      <DependentUpon>OrderSuccess.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

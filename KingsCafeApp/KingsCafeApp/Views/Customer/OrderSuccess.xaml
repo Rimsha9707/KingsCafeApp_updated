@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Customer.OrderConfirmation"
+             Title=" Order Confirmation">
+    <ContentPage.Content>
+        <ScrollView >
+
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="15" >
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="True"></ActivityIndicator>
+
+                <ListView SeparatorVisibility="Default" SeparatorColor="{StaticResource Primary}" x:Name="DataList" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="70,*,40" RowDefinitions="20,20" Padding="2">
+
+                                    <Image Source="{Binding image}" Grid.RowSpan="2" Grid.Column="0" />
+                                    <Label TextColor="Black" Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
+                                    <Label TextColor="Black" Grid.Row="1" Grid.Column="1" Text="{Binding SalePrice}" />
+                                    <Label TextColor="Black" Grid.Row="1" Grid.Column="1" Text="{Binding Quantity}" />
+                                    
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                <Grid ColumnDefinitions="200*,700*" RowDefinitions="30,30,50">
+                    <Label Grid.Row="0" Grid.Column="0"  Text="Name:" />
+                    <Label Grid.Row="1" Grid.Column="0" Text="Phone: " />
+                    <Label Grid.Row="2" Grid.Column="0" Text="Email: " />
+                    <Label Grid.Row="3" Grid.Column="0" Text="Address: " />
+                    <!--<Label Grid.Row="2" Grid.Column="0" Text="Payment Method: " />-->
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Phone} " />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Email} " />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Address} " />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

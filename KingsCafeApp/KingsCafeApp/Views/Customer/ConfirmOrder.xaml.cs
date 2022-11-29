@@ -28,6 +28,8 @@ namespace KingsCafeApp.Views.Customer
 
         private async void btnConfirm_Clicked(object sender, EventArgs e)
         {
+            try
+            {
             LoadingInd.IsRunning = true;
             int LastID, NewID = 1;
 
@@ -45,6 +47,7 @@ namespace KingsCafeApp.Views.Customer
                 OrderID = NewID,
                 Name = txtName.Text,
                 Email = txtEmail.Text,
+                Phone = txtPhone.Text,
                 Address = txtAddress.Text,
                 OrderDate = DateTime.Now.Date,
                 OrderTime = DateTime.Now.TimeOfDay,
@@ -79,18 +82,21 @@ namespace KingsCafeApp.Views.Customer
 
             }
 
-
-            await DisplayAlert("Success", "OrderSaved Successfully", "OK");
-
-            //EMPTY CART======================================================================
-            App.Cart=new List<OrderDetail>();
-
-
+            //await DisplayAlert("Success", "OrderSaved Successfully", "OK");
             LoadingInd.IsRunning = false;
+        //==========================EMPTY CART========================================================
+            App.Cart=new List<OrderDetail>();
+        //==========================navigate to order success page====================================
+            App.Current.MainPage = new NavigationPage(new Views.Customer.OrderConfirmation(NewID));
 
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("message", "somthing went wrong. this may be a problem with internet or application. please ensure that you have a working internet connection and gps enabled. \nerror details : " + ex.Message, "ok");
+            }
         }
 
-        //for validations 
+        //===========================for validations=================================================
         private void txtPhone_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (e.NewTextValue.Length < 11 || e.NewTextValue.Length > 13)

@@ -11,8 +11,12 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Padding="24" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+            <StackLayout Padding="24" Spacing="24" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
 
+                <Label/>
+                <Label HorizontalOptions="CenterAndExpand" Text="The Last Step! Your order is almost ready please confirm where do you want to deliver this order?" />
+                <Label />
+                
                 <Entry IsTextPredictionEnabled="True" Keyboard="Chat" Placeholder="Name.." x:Name="txtName"></Entry>
 
                 <Entry Keyboard="Numeric" TextChanged="txtPhone_TextChanged" Placeholder="Phone No.." x:Name="txtPhone"></Entry>

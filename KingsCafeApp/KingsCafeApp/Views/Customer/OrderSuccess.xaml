@@ -2,43 +2,58 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KingsCafeApp.Views.Customer.OrderConfirmation"
-             Title=" Order Confirmation">
+             Title=" Order Placed">
     <ContentPage.Content>
         <ScrollView >
-
+            
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="15" >
                 <ActivityIndicator x:Name="LoadingInd" IsRunning="True"></ActivityIndicator>
-
-                <ListView SeparatorVisibility="Default" SeparatorColor="{StaticResource Primary}" x:Name="DataList" HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid ColumnDefinitions="70,*,40" RowDefinitions="20,20" Padding="2">
+<!--List of products-->
+                    <!--<ListView SeparatorVisibility="Default" SeparatorColor="{StaticResource Primary}" x:Name="DataList" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid ColumnDefinitions="70,*,40" RowDefinitions="20,20" Padding="2">
 
                                     <Image Source="{Binding image}" Grid.RowSpan="2" Grid.Column="0" />
-                                    <Label TextColor="Black" Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
-                                    <Label TextColor="Black" Grid.Row="1" Grid.Column="1" Text="{Binding SalePrice}" />
-                                    <Label TextColor="Black" Grid.Row="1" Grid.Column="1" Text="{Binding Quantity}" />
-                                    
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                    <Label TextColor="Black" Grid.Row="1" Grid.Column="1" Text="lblProName" />
+                                        <Label TextColor="Black" Grid.Row="2" Grid.Column="1" Text="lblSalePrice" />
+                                        <Label TextColor="Black" Grid.Row="3" Grid.Column="1" Text="lblProQuantity" />
 
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>-->
+                
+<!--Customer details-->
+                    <Grid ColumnDefinitions="200*,700*" RowDefinitions="30,30,50">
+                    <Label  Grid.Row="0"  TextColor="{StaticResource Primary}" FontAttributes="Bold" Grid.Column="0" Text="Order ID : " />
+                    <Label Grid.Row="1" Grid.Column="0" TextColor="{StaticResource Primary}" FontAttributes="Bold" Text="Name : " />
+                    <Label Grid.Row="2" Grid.Column="0" TextColor="{StaticResource Primary}" FontAttributes="Bold" Text="Phone : " />
+                    <Label Grid.Row="3" Grid.Column="0" TextColor="{StaticResource Primary}" FontAttributes="Bold" Text="Email : " />
+                    <Label Grid.Row="4" Grid.Column="0" TextColor="{StaticResource Primary}" FontAttributes="Bold" Text="Address : " />
+                    <Label Grid.Row="5" Grid.Column="0" TextColor="{StaticResource Primary}" FontAttributes="Bold" Text="Order Date : " />
 
-                <Grid ColumnDefinitions="200*,700*" RowDefinitions="30,30,50">
+                        <Label Grid.Row="0" TextColor="Black" Grid.Column="1" x:Name="lblID" />
+                    <Label Grid.Row="1" TextColor="Black" Grid.Column="1" x:Name="lblCustomer" />
+                    <Label Grid.Row="2" TextColor="Black" Grid.Column="1" x:Name="lblPhone" />
+                    <Label Grid.Row="3" TextColor="Black" Grid.Column="1" x:Name="lblEmail" />
+                    <Label Grid.Row="4" TextColor="Black" Grid.Column="1" x:Name="lblAddress" />
+                    <Label Grid.Row="5" TextColor="Black" Grid.Column="1" x:Name="lblDate" />
+                    </Grid>
+                    <!--<Grid ColumnDefinitions="200*,700*" RowDefinitions="30,30,50">
                     <Label Grid.Row="0" Grid.Column="0"  Text="Name:" />
                     <Label Grid.Row="1" Grid.Column="0" Text="Phone: " />
                     <Label Grid.Row="2" Grid.Column="0" Text="Email: " />
                     <Label Grid.Row="3" Grid.Column="0" Text="Address: " />
-                    <!--<Label Grid.Row="2" Grid.Column="0" Text="Payment Method: " />-->
+                    --><!--<Label Grid.Row="2" Grid.Column="0" Text="Payment Method: " />--><!--
 
                     <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
                     <Label Grid.Row="1" Grid.Column="1" Text="{Binding Phone} " />
                     <Label Grid.Row="2" Grid.Column="1" Text="{Binding Email} " />
                     <Label Grid.Row="3" Grid.Column="1" Text="{Binding Address} " />
-                </Grid>
+                </Grid>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

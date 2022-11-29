@@ -61,7 +61,7 @@
 
                                     <DataTemplate >
                                         <StackLayout Padding="24" VerticalOptions="Start">
-                                            <Frame Padding="0" HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="150" WidthRequest="150">
+                                            <Frame Padding="0"  HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="150" WidthRequest="150">
                                                 <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                             </Frame>
                                             <Label Text="{Binding Name}" TextColor="Black" FontSize="15" />

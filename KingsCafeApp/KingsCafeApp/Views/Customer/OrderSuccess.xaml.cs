@@ -24,28 +24,36 @@ namespace KingsCafeApp.Views.Customer
         }
         private async void LoadData(int Id)
         {
-            var OrderDetails = (await App.firebaseDatabase.Child("OrderDetail").OnceAsync<OrderDetail>()).Where(x => x.Object.OrderFID == id).ToList();
-            List<CartItem> Cart = new List<CartItem>();
-
-            foreach (var item in OrderDetails)
+            try
             {
-                var food = (await App.firebaseDatabase.Child("FoodItem").OnceAsync<FoodItem>()).FirstOrDefault(x => x.Object.ItemID == item.Object.ItemFID);
-                Cart.Add(new CartItem { foodItem = food.Object, quantity = item.Object.Quantity });
-            }
+             //==============Product List ============================
+            //var OrderDetails = (await App.firebaseDatabase.Child("OrderDetail").OnceAsync<OrderDetail>()).Where(x => x.Object.OrderFID == id).ToList();
+            //List<CartItem> Cart = new List<CartItem>();
 
-            ViewBag.Items = Cart;
+            //foreach (var item in OrderDetails)
+            //{
+            //    var food = (await App.firebaseDatabase.Child("FoodItem").OnceAsync<FoodItem>()).FirstOrDefault(x => x.Object.ItemID == item.Object.ItemFID);
+            //    Cart.Add(new CartItem { foodItem = food.Object, quantity = item.Object.Quantity });
+            //}
+
+            //ViewBag.Items = Cart;
+            //=========================Customer Detail===================================
             var order = (await App.firebaseDatabase.Child("Order").OnceAsync<Order>()).FirstOrDefault(x => x.Object.OrderID == id);
+            lblCustomer.Text = order.Object.Name;
+            lblPhone.Text = order.Object.Phone;
+            lblEmail.Text = order.Object.Email;
+            lblAddress.Text = order.Object.Address;
+            lblDate.Text = order.Object.OrderDate.ToShortDateString();
+            lblID.Text = "KC202200-" + order.Object.OrderID.ToString();
 
-           
-            await DisplayAlert("Message", "Order has confirmed.It will be delivered soon order details are as under", "Ok");
+            await DisplayAlert("Message", "Order is placed successfully. It will be delivered soon order details are as under", "Ok");
             return;
-           
 
-            //var order = (await App.firebaseDatabase.Child("Order").OnceAsync<Order>()).FirstOrDefault(x => x.Object.OrderID == Id);
-
-            //lblCustomer.Text = order.Object.Name;
-            //lblDate.Text = order.Object.OrderDate.ToShortDateString();
-            //lblID.Text = "KC202200-" + order.Object.OrderID.ToString();
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("message", "somthing went wrong. This may be a problem with internet or application. Please ensure that you have a working internet connection and gps enabled. \nerror details : " + ex.Message, "ok");
+            }
         }
 
         private void Button_Clicked(object sender, EventArgs e)

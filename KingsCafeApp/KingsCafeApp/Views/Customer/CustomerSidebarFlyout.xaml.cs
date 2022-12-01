@@ -1,4 +1,5 @@
-﻿using KingsCafeApp.LoginSystem;
+﻿using KingsCafeApp.Login;
+using KingsCafeApp.LoginSystem;
 using KingsCafeApp.Views.Admin;
 using System;
 using System.Collections.Generic;
@@ -37,9 +38,10 @@ namespace KingsCafeApp.Views.Customer
                 {   
                     new CustomerSidebarFlyoutMenuItem { Id = 0, Icon="Home_icon.png", Title = "Home", TargetType=typeof(CustomerHome) },
                     new CustomerSidebarFlyoutMenuItem { Id = 1, Icon="category_icon.png", Title = "View Categories", TargetType=typeof(FoodCategory) },
-                    new CustomerSidebarFlyoutMenuItem { Id = 1, Icon="category_icon.png", Title = "View Products", TargetType=typeof(ProductList) },
+                    new CustomerSidebarFlyoutMenuItem { Id = 1, Icon="category_icon.png", Title = "Menu", TargetType=typeof(Menu) },
                     new CustomerSidebarFlyoutMenuItem { Id = 2,Icon="logo.png", Title = "About", TargetType=typeof(CustomerHome) },
-                    new CustomerSidebarFlyoutMenuItem { Id = 2,Icon="ContactUs_icon.png", Title = "Contact us" , TargetType=typeof(CustomerHome)},
+                    new CustomerSidebarFlyoutMenuItem { Id = 2,Icon="ContactUs_icon.png", Title = "Contact us" , TargetType=typeof(ContactUs)},
+                    new CustomerSidebarFlyoutMenuItem { Id = 2,Icon="ContactUs_icon.png", Title = "Login" , TargetType=typeof(loginUser)},
                 
                 });
             }

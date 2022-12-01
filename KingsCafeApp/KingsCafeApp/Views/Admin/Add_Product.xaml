@@ -2,27 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KingsCafeApp.Views.Admin.Add_Product" 
-             Title="Add new Product">
+             Title="Add new Product" BackgroundColor="AntiqueWhite">
     <ContentPage.Content>
-        <StackLayout Padding="34" VerticalOptions="CenterAndExpand">
-            <Image x:Name="PreviewPic" Source="category_picker.png" >
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                </Image.GestureRecognizers>
-            </Image>
-            <Entry x:Name="txtProName" Placeholder="Product Name" Keyboard="Chat"/>
-            <Entry x:Name="txtProPrice" Placeholder="Product Price" Keyboard="Numeric"/>
+        <ScrollView>
+            <Grid>
+                <StackLayout Margin="15,110,15,0">
+                    <Frame BackgroundColor="white"  HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
+                        <StackLayout Padding="12" Margin="0,0,0,0" VerticalOptions="CenterAndExpand">
+                            <Image x:Name="PreviewPic" Source="category_picker.png" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Entry x:Name="txtProName" Placeholder="Product Name" Keyboard="Chat"/>
+                            <Entry x:Name="txtProPrice" Placeholder="Product Price" Keyboard="Numeric"/>
 
-            <Picker Title="--Select Category--" x:Name="ddlCat">
-                <!--<Picker.Items>
+                            <Picker Title="--Select Category--" x:Name="ddlCat">
+                                <!--<Picker.Items>
                     <x:String>yes</x:String>
                     <x:String>no</x:String>
                 </Picker.Items>-->
-            </Picker>
-            
-            
-            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
-            <Button Text="Add Product" x:Name="btnPro" Clicked="btnPro_Clicked"></Button>
-        </StackLayout>
+                            </Picker>
+                            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
+                            <Button Text="Add Product" CornerRadius="12" x:Name="btnPro" Clicked="btnPro_Clicked"></Button>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

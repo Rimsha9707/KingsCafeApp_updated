@@ -2,22 +2,58 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KingsCafeApp.Login.loginUser"
-             Title="Login"
+             Title="Login" BackgroundColor="AntiqueWhite"
              >
     <ContentPage.Content >
+        <Grid>
+            <StackLayout Margin="15,110,15,0">
+
+            <Frame BackgroundColor="white" HasShadow="True" HeightRequest="400" HorizontalOptions="FillAndExpand">
 
 
-        <StackLayout Padding="34" VerticalOptions="CenterAndExpand" >
-            <Entry Keyboard="Email" TextColor="#ff914d" x:Name="txtEmail" Placeholder="Email..."/>
-            <Entry IsPassword="True" TextColor="#ff914d" x:Name="txtPassword" Placeholder="Password..."/>
-            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
-            <Button Text="Login" Clicked="Button_Clicked"/>
-            <Label Text="SignUp now" TextColor="#ff914d" FontAttributes="Bold">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                    <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="LOGIN" TextColor="{StaticResource Primary}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Margin="0,25,0,0">
+                            
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BackgroundColor="white" CornerRadius="15" HeightRequest="30" WidthRequest="30" Padding="0" Margin="7" HorizontalOptions="Start">
+                                    <Image Source="mail_ic.png"  BackgroundColor="White" Aspect="AspectFill" Margin="0" />
+                                </Frame>
+                                <Entry ClearButtonVisibility="WhileEditing" Placeholder="Email" TextColor="{StaticResource Primary}" PlaceholderColor="Gray" Keyboard="Email" x:Name="txtEmail" HorizontalOptions="FillAndExpand" >
+
+                                </Entry>
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BackgroundColor="white" CornerRadius="30" HeightRequest="35" WidthRequest="35" Padding="0" Margin="7" HorizontalOptions="Start">
+                                    <Image Source="password_ic.png" BackgroundColor="White" Aspect="AspectFill" Margin="0" />
+                                </Frame>
+                                <Entry ClearButtonVisibility="WhileEditing" Placeholder="Password" TextColor="{StaticResource Primary}" PlaceholderColor="Gray" IsPassword="True" x:Name="txtPassword" HorizontalOptions="FillAndExpand" ></Entry>
+                            </StackLayout>
+                        </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="False" Color="{StaticResource Primary}"></CheckBox>
+                            <Label Text="Remember me" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"></Label>
+                        <Label Text="Show Password" HorizontalTextAlignment="End"  FontSize="15" VerticalTextAlignment="End" Margin="6" HorizontalOptions="EndAndExpand" TextColor="{StaticResource Primary}"></Label>
+                    </StackLayout>
+                    <ActivityIndicator x:Name="LoadingInd" IsRunning="False" />
+                        <Button Text="LOGIN" FontAttributes="Bold" BorderWidth="4"  CornerRadius="12" BackgroundColor="{StaticResource Primary}" TextColor="#FFFFFF" Clicked="Button_Clicked"></Button>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                       <Label Text="Forget Password ?" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Bold" VerticalTextAlignment="Center">
+                            
+                        </Label>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+
         </StackLayout>
+        </Grid>
 
     </ContentPage.Content>
 </ContentPage>

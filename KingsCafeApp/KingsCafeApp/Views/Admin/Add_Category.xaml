@@ -2,17 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KingsCafeApp.Views.Admin.Add_Category" 
-             Title="Add new Category">
+             Title="Add new Category" BackgroundColor="AntiqueWhite">
     <ContentPage.Content>
-        <StackLayout Padding="34" VerticalOptions="CenterAndExpand">
-            <Image x:Name="PreviewPic" Source="category_picker.png" >
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                </Image.GestureRecognizers>
-            </Image>
-            <Entry x:Name="txtCatName" Placeholder="Category Name" Keyboard="Chat"/>
-            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
-            <Button Text="Add Category" x:Name="btnCat" Clicked="btnCat_Clicked"></Button>
-        </StackLayout>
+        <ScrollView>
+        <Grid>
+            <StackLayout Margin="15,110,15,0">
+                <Frame BackgroundColor="white" HasShadow="True" HeightRequest="400" HorizontalOptions="FillAndExpand">
+            <StackLayout Padding="12" VerticalOptions="CenterAndExpand">
+                <Image x:Name="PreviewPic" Source="category_picker.png" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Entry x:Name="txtCatName" Placeholder="Category Name" Keyboard="Chat"/>
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
+                        <Button Text="Add Category" x:Name="btnCat" CornerRadius="12" Clicked="btnCat_Clicked"></Button>
+            </StackLayout>
+        </Frame>
+       </StackLayout>
+        </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

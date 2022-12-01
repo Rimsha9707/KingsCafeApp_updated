@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="KingsCafeApp.Views.Customer.Menu">
+    <ContentPage.Content>
+        <StackLayout Padding="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout>
+                <Label Text="Our Menu" FontSize="Title" FontAttributes="Bold" TextColor="{StaticResource Primary}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="To eat is a necessity, but to eat intelligently is an art" FontSize="16" FontAttributes="Italic" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <cv:CarouselViewControl x:Name="cvBanners" ShowIndicators="true" IndicatorsShape="Circle" IndicatorsTintColor="LightGray"
+                                    CurrentPageIndicatorTintColor="{StaticResource Primary}" Orientation="Horizontal" InterPageSpacing="0" 
+                                    HeightRequest="600" ItemsSource="{Binding Banners2}" HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand" AnimateTransition="True">
+                <cv:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
+                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
+                            <StackLayout Margin="30,20,0,0" Spacing="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <Label Text="{Binding Heading}" TextColor="White" FontSize="12" FontAttributes="Bold"/>
+                                <BoxView BackgroundColor="White" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="1" WidthRequest="50"/>
+                                <StackLayout>
+                                    <Label Text="{Binding Message}" TextColor="White" FontSize="35" />
+                                    <Label Text="{Binding Caption}" TextColor="White" FontSize="12" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </cv:CarouselViewControl.ItemTemplate>
+            </cv:CarouselViewControl>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Customer.ContactUs">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout >
+                <Image Source="logo.png" VerticalOptions="Center" />
+                <Label Text="Support Center" TextColor="Black" HorizontalOptions="Center" FontSize="Large"  FontAttributes="Bold"></Label>
+                <Label Text="For queries, please contact us at:" TextColor="Black" HorizontalOptions="Center" FontSize="Body" ></Label>
+                <Label Text="kingscafe12@gmail.com" TextColor="{StaticResource Primary}" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"></Label>
+                <Label Text="+923219644664" TextColor="{StaticResource Primary}" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"></Label>
+                <Image Source="facebook_ic.png" Margin="0,100,0,0"></Image>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

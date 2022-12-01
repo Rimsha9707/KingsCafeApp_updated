@@ -16,13 +16,10 @@ namespace KingsCafeApp.Views.Customer
         public CustomerHome()
         {
             InitializeComponent();
+            LoadingInd.IsRunning = true;
             LoadData();
             this.BindingContext = this;
-        }
-
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-
+            LoadingInd.IsRunning = false;
         }
 
         private void ToolbarItem_Clicked_1(object sender, EventArgs e)
@@ -43,26 +40,15 @@ namespace KingsCafeApp.Views.Customer
         }
         private Timer timer;
         public List<Banner> Banners { get => GetBanners(); }
-        //public List<> CollectionsList { get => GetCollections(); }
-        public List<Category> TrendsList { get => GetTrends(); }
 
         private List<Banner> GetBanners()
         {
             var bannerList = new List<Banner>();
-            bannerList.Add(new Banner { Heading = "King's Cafe", Message = "King's Cafe", Caption = "Taste K Bhndaarrr", Image = "Slide.jpg" });
-            bannerList.Add(new Banner { Heading = "King's Cafe", Message = "Taste K Bhndaarrr", Caption = "Welcome to King's Cafe", Image = "Slidetwo.jpg" });
+            bannerList.Add(new Banner { Heading = "Welcome To", Message = "King's Cafe", Caption = "Taste K Bhndaarrr", Image = "Slide.jpg" });
+            bannerList.Add(new Banner { Heading = "King's Cafe", Message = "Taste Our Food", Caption = "Taste K Bhndaarrr", Image = "Slidetwo.jpg" });
             bannerList.Add(new Banner { Heading = "King's Cafe", Message = "Your Taste Is Our Goal", Caption = "Taste K Bhndaarrr", Image = "Slidethree.jpg" });
             return bannerList;
         }
-
-        private List<Category> GetTrends()
-        {
-            var colList = new List<Category>();
-            colList.Add(new Category { Image = "heeledShoe.png", Name = "Beige Heeled Shoe", Status = "$109.99" });
-            colList.Add(new Category { Image = "dressShoe.png", Name = "Shoe + Addons", Status = "$225.99" });
-            return colList;
-        }
-
         protected override void OnAppearing()
         {
             timer = new Timer(TimeSpan.FromSeconds(5).TotalMilliseconds) { AutoReset = true, Enabled = true };
@@ -90,10 +76,11 @@ namespace KingsCafeApp.Views.Customer
                 cvBanners.Position += 1;
             });
         }
-
-        private void DataList_ItemTapped(object sender, ItemTappedEventArgs e)
+//========================navigation to products using collection view==================//
+        private void DataList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            var item = e.CurrentSelection.FirstOrDefault() as Category;
+            Navigation.PushAsync(new Views.Customer.ProductList(item.CatID));
         }
     }
 

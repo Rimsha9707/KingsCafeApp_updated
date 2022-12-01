@@ -14,24 +14,7 @@
                 <Button Text="Get Started" BorderWidth="4" BorderColor="#ff914d" CornerRadius="12"  BackgroundColor="#ff914d" TextColor="White" x:Name="btnGetStarted" Clicked="btnGetStarted_Clicked"/>
 
                 <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand">
-                    <Label Text="Admin" TextColor="#ff914d" FontSize="16">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Label Text=" | " TextColor="#ff914d" />
-                    <Label Text="Worker" TextColor="#ff914d" FontSize="16">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
-                        </Label.GestureRecognizers>
-                    </Label> 
-                    <Label Text=" | " TextColor="#ff914d" />
-                    <Label Text="Rider" TextColor="#ff914d" FontSize="16">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Label Text=" | " TextColor="#ff914d" />
+                    <!--<Label Text=" | " TextColor="#ff914d" />-->
                     <Label Text="Reset Default" TextColor="#ff914d" FontSize="16">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>

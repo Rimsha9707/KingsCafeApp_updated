@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using KingsCafeApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,6 +21,7 @@ namespace KingsCafeApp.Views.Customer
             {
                 LoadingInd.IsRunning = true;
                 LoadData(id);
+                LoadData();
                 LoadingInd.IsRunning = false;
                 this.BindingContext = this;
             }
@@ -31,23 +33,6 @@ namespace KingsCafeApp.Views.Customer
 
         }
 
-        //protected async override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    try
-        //    {
-        //        LoadingInd.IsRunning = true;
-        //        LoadData(id);
-        //        LoadingInd.IsRunning = false;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LoadingInd.IsRunning = false;
-        //        await DisplayAlert("Error", "Something went wrong, please try again later. \nError: " + ex.Message, "Ok");
-        //    }
-        //}
-
-
         async void LoadData(int id)
         {
             var data = (await App.firebaseDatabase.Child("FoodItem").OnceAsync<FoodItem>()).Where(x => x.Object.CatFID == id).Select(x => new FoodItem
@@ -58,7 +43,16 @@ namespace KingsCafeApp.Views.Customer
                 SalePrice = x.Object.SalePrice,
             }).ToList();
 
-            DataList.ItemsSource = data;
+            DataList1.ItemsSource = data;
+        }
+        async void LoadData()
+        {
+            DataList.ItemsSource = (await App.firebaseDatabase.Child("Category").OnceAsync<Category>()).Select(x => new Category
+            {
+                CatID = x.Object.CatID,
+                Name = x.Object.Name,
+                Image = x.Object.Image,
+            }).ToList();
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -123,7 +117,44 @@ namespace KingsCafeApp.Views.Customer
                 "Ok"
                 );
         }
+        private Timer timer;
+        public List<Banner3> Banners3 { get => GetBanners3(); }
 
+        private List<Banner3> GetBanners3()
+        {
+            var bannerList = new List<Banner3>();
+            bannerList.Add(new Banner3 { Image = "Image31.jpg" });
+            bannerList.Add(new Banner3 { Image = "Image32.jpg" });
+            bannerList.Add(new Banner3 { Image = "Image33.jpg" });
+            return bannerList;
+        }
+        protected override void OnAppearing()
+        {
+            timer = new Timer(TimeSpan.FromSeconds(5).TotalMilliseconds) { AutoReset = true, Enabled = true };
+            timer.Elapsed += Timer_Elapsed;
+            base.OnAppearing();
+        }
+
+        protected override void OnDisappearing()
+        {
+            timer?.Dispose();
+            base.OnDisappearing();
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+
+                if (cvBanners.Position == 2)
+                {
+                    cvBanners.Position = 0;
+                    return;
+                }
+
+                cvBanners.Position += 1;
+            });
+        }
         private void DataList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
              
@@ -139,4 +170,9 @@ namespace KingsCafeApp.Views.Customer
 
         }
     }
+    public class Banner3
+    {
+        public string Image { get; set; }
+    }
+
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KingsCafeApp.Views.Admin.Manage_Product" 
-             Title="Manage Product"
+             x:Class="KingsCafeApp.Views.Admin.Manage_User" 
+             Title="Manage User"
              >
     <ContentPage.ToolbarItems>
         <ToolbarItem  Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
@@ -13,7 +13,7 @@
             <ListView x:Name="DataList" ItemTapped="DataList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ImageCell Text="{Binding Name}" Detail="{Binding SalePrice}" ImageSource="{Binding Image}">
+                        <ImageCell  Text="{Binding Name}" Detail="{Binding Type}" >
                             
                         </ImageCell>
                     </DataTemplate>

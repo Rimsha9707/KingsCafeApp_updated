@@ -16,7 +16,7 @@
                             <Label x:Name="lblPasswordValidation" IsVisible="False"></Label>
                             <Entry x:Name="txtUserStatus" Placeholder="Status" Keyboard="Chat"/>
 
-                            <Picker Title="--Select Category--" x:Name="ddlUserType">
+                            <Picker Title="--Select Type--" x:Name="ddlUserType">
                                 <Picker.Items>
                                     <x:String>Admin</x:String>
                                     <x:String>Worker</x:String>

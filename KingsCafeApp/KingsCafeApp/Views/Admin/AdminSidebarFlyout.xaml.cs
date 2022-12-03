@@ -36,7 +36,7 @@ namespace KingsCafeApp.Views.Admin
                 {
                     new AdminSidebarFlyoutMenuItem { Id = 0, Icon="Home_icon.png", Title = "Home", TargetType=typeof(AdminHome) },
                     new AdminSidebarFlyoutMenuItem { Id = 0, Icon="registration_pic.png", Title = "Add User", TargetType=typeof(Add_User) },
-                    new AdminSidebarFlyoutMenuItem { Id = 0, Icon="registration_pic.png", Title = "User List", TargetType=typeof(Userlist) },
+                    new AdminSidebarFlyoutMenuItem { Id = 0, Icon="registration_pic.png", Title = "Manage User", TargetType=typeof(Manage_User) },
                     new AdminSidebarFlyoutMenuItem { Id = 1, Icon="category_icon.png", Title = "Add Category", TargetType=typeof(Add_Category) },
                     new AdminSidebarFlyoutMenuItem { Id = 2, Icon="category_icon.png", Title = "Add Product", TargetType=typeof(Add_Product) },
                     new AdminSidebarFlyoutMenuItem { Id = 3,Icon="category_icon.png", Title = "Manage Category", TargetType=typeof(ManageCategory)},

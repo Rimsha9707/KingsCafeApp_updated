@@ -84,8 +84,7 @@ namespace KingsCafeApp.Views.Customer
 
             //await DisplayAlert("Success", "OrderSaved Successfully", "OK");
             LoadingInd.IsRunning = false;
-        //==========================EMPTY CART========================================================
-            App.Cart=new List<OrderDetail>();
+        
         //==========================navigate to order success page====================================
             App.Current.MainPage = new NavigationPage(new Views.Customer.OrderConfirmation(NewID));
 

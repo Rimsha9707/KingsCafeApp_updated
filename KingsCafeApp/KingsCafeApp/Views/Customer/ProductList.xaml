@@ -23,23 +23,24 @@
         </cv:CarouselViewControl>
             
 <!--//======================== categories bar================//-->
-                <!--<CollectionView x:Name="DataList1">
+                <CollectionView x:Name="DataList1" HeightRequest="50" Margin="8" ItemsLayout="HorizontalList">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid  ColumnDefinitions="*">
-                                <Label Grid.Row="0" Text="{Binding Name}"></Label>
-                            </Grid>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label VerticalOptions="CenterAndExpand"  BackgroundColor="#ff914d" TextColor="White" Margin="4" Padding="8"  HorizontalTextAlignment="Center"  Text="{Binding Name}"></Label>
+                                </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-                </CollectionView>-->
+                </CollectionView>
                 <!-- designing-->
+               
                 <StackLayout Padding="20">
             <ActivityIndicator x:Name="LoadingInd" IsRunning="False"></ActivityIndicator>
             <CollectionView x:Name="DataList" ItemsLayout="VerticalGrid, 2" SelectionMode="Single" SelectionChanged="DataList_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
 
-                        <Grid RowDefinitions="150,20,20,20,40,40" ColumnDefinitions="70*,80*">
+                        <Grid  RowDefinitions="150,20,20,20,40,40" ColumnDefinitions="70*,80*">
                             <Image Margin="2,0,2,0" Grid.ColumnSpan="2" Grid.Row="0"  Source="{Binding Image}" Aspect="AspectFill"  />
                             <Label Margin="2,0,2,0" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Name}" FontAttributes="Bold"/>
                             <Label Margin="2,0,2,0" Grid.Column="0" Grid.Row="2" Text="Rs." FontAttributes="Bold" />
@@ -51,13 +52,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <!--<ListView x:Name="DataList" ItemTapped="DataList_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ImageCell Text="{Binding ProName}" Detail="{ Binding Details}" ImageSource="{Binding Picture}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
                 </StackLayout>
             </StackLayout>
         </ScrollView>

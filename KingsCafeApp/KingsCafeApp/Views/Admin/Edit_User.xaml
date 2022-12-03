@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Admin.Edit_User"
+             Title="Edit User">
+    <ContentPage.Content>
+        <StackLayout Padding="34" VerticalOptions="CenterAndExpand">
+            <Entry x:Name="txtUserName" Placeholder="User Name" Keyboard="Chat"/>
+            <Entry Keyboard="Email" x:Name="txtUserEmail" Placeholder="User Email"/>
+            <Label x:Name="lblEmailValidation" IsVisible="true"></Label>
+            <Entry IsPassword="True" x:Name="txtUserPassword" Placeholder="Password" />
+            <Label x:Name="lblPasswordValidation" IsVisible="False"></Label>
+            <Entry x:Name="txtUserStatus" Placeholder="Status" Keyboard="Chat"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Medium"  Text="Type :" />
+                <Label FontSize="Medium"   x:Name="lblUserType" />
+
+                <Label Text="Change" FontSize="Medium" TextColor="{StaticResource Primary}" HorizontalOptions="EndAndExpand" x:Name="lblUTypeChange">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Picker IsVisible="False" Title="--Select Type--" x:Name="ddlUserType" SelectedIndexChanged="ddlUserType_SelectedIndexChanged" >
+                <Picker.Items>
+                    <x:String>Admin</x:String>
+                    <x:String>Worker</x:String>
+                    <x:String>Rider</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
+            <Button Text="Edit User" x:Name="btnUser" Clicked="btnUser_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

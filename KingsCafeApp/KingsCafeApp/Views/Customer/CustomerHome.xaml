@@ -51,7 +51,7 @@
                             </Grid.RowDefinitions>
                             <!--//============collection view selection mode is disabled by default===========//-->
                             <ScrollView Orientation="Horizontal"  Grid.Row="1" VerticalOptions="Start" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
-                                <CollectionView SelectionMode="Multiple" x:Name="DataList" SelectionChanged="DataList_SelectionChanged"  VerticalOptions="Start" ItemsLayout="VerticalGrid, 2" >
+                                <CollectionView SelectionMode="Single" x:Name="DataList" SelectionChanged="DataList_SelectionChanged"  VerticalOptions="Start" ItemsLayout="VerticalGrid, 2" >
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate >
                                             <StackLayout Padding="24" VerticalOptions="Start">

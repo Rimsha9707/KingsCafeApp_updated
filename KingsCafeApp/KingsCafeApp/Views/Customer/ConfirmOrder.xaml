@@ -17,15 +17,15 @@
                 <Label HorizontalOptions="CenterAndExpand" Text="The Last Step! Your order is almost ready please confirm where do you want to deliver this order?" />
                 <Label />
                 
-                <Entry IsTextPredictionEnabled="True" Keyboard="Chat" Placeholder="Name.." x:Name="txtName"></Entry>
+                <Entry IsTextPredictionEnabled="True" Keyboard="Chat" Placeholder="Name.." ReturnType="Next" x:Name="txtName"></Entry>
 
-                <Entry Keyboard="Numeric" TextChanged="txtPhone_TextChanged" Placeholder="Phone No.." x:Name="txtPhone"></Entry>
+                <Entry Keyboard="Numeric" TextChanged="txtPhone_TextChanged" Placeholder="Phone No.."  ReturnType="Next" x:Name="txtPhone"></Entry>
                 <Label x:Name="lblPhoneValidation" IsVisible="False"></Label>
 
-                <Entry Keyboard="Email" TextChanged="txtEmail_TextChanged" Placeholder="Email.." x:Name="txtEmail"></Entry>
+                <Entry Keyboard="Email" TextChanged="txtEmail_TextChanged" Placeholder="Email.."  ReturnType="Next" x:Name="txtEmail"></Entry>
                 <Label x:Name="lblEmailValidation" IsVisible="true"></Label>
 
-                <Entry Placeholder="Address.." x:Name="txtAddress"></Entry>
+                <Entry Placeholder="Address.." x:Name="txtAddress"  ReturnType="Done"></Entry>
                
                 <ActivityIndicator x:Name="LoadingInd" IsRunning="False" />
                 <Button Text="Confirm Order" Clicked="btnConfirm_Clicked" x:Name="btnConfirm"/>

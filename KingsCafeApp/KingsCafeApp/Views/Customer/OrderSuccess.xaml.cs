@@ -1,4 +1,5 @@
 ﻿using KingsCafeApp.Models;
+using KingsCafeApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,23 +21,46 @@ namespace KingsCafeApp.Views.Customer
             LoadingInd.IsRunning = true;
             id = OrderID;
             LoadData(OrderID);
+            UpdateCartAsync();
+
             LoadingInd.IsRunning = false;
+        }
+
+
+
+        async void UpdateCartAsync()
+        {
+            List<imageCell_VM> CartItems = new List<imageCell_VM>();
+            decimal? Amount = 0;
+            foreach (var item in App.Cart)
+            {
+                var prod = (await App.firebaseDatabase.Child("FoodItem").OnceAsync<Models.FoodItem>()).FirstOrDefault(x => x.Object.ItemID == item.ItemFID);
+
+                decimal? total = (decimal?)(prod.Object.SalePrice * (item.Quantity));
+                Amount += total;
+
+                CartItems.Add(new imageCell_VM
+                {
+                    ID = prod.Object.ItemID,
+                    image = prod.Object.Image,
+                    Name = prod.Object.Name,
+                    Detail = "Rs. " + prod.Object.SalePrice + " X  " + item.Quantity + " = Total Rs. " + total.ToString()
+                });
+            }
+
+            App.Total = Amount;
+
+            lblTotal.Text = Amount.ToString();
+            DataList.ItemsSource = CartItems;
+
+            //==========================EMPTY CART========================================================
+            App.Cart=new List<OrderDetail>();
+
         }
         private async void LoadData(int Id)
         {
             try
             {
-             //==============Product List ============================
-            //var OrderDetails = (await App.firebaseDatabase.Child("OrderDetail").OnceAsync<OrderDetail>()).Where(x => x.Object.OrderFID == id).ToList();
-            //List<CartItem> Cart = new List<CartItem>();
-
-            //foreach (var item in OrderDetails)
-            //{
-            //    var food = (await App.firebaseDatabase.Child("FoodItem").OnceAsync<FoodItem>()).FirstOrDefault(x => x.Object.ItemID == item.Object.ItemFID);
-            //    Cart.Add(new CartItem { foodItem = food.Object, quantity = item.Object.Quantity });
-            //}
-
-            //ViewBag.Items = Cart;
             //=========================Customer Detail===================================
             var order = (await App.firebaseDatabase.Child("Order").OnceAsync<Order>()).FirstOrDefault(x => x.Object.OrderID == id);
             lblCustomer.Text = order.Object.Name;

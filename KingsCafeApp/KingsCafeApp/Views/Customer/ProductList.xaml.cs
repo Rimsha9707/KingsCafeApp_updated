@@ -21,7 +21,6 @@ namespace KingsCafeApp.Views.Customer
             {
                 LoadingInd.IsRunning = true;
                 LoadData(id);
-                LoadData();
                 LoadingInd.IsRunning = false;
                 this.BindingContext = this;
             }
@@ -43,17 +42,17 @@ namespace KingsCafeApp.Views.Customer
                 SalePrice = x.Object.SalePrice,
             }).ToList();
 
-            DataList1.ItemsSource = data;
+            DataList.ItemsSource = data;
         }
-        async void LoadData()
-        {
-            DataList.ItemsSource = (await App.firebaseDatabase.Child("Category").OnceAsync<Category>()).Select(x => new Category
-            {
-                CatID = x.Object.CatID,
-                Name = x.Object.Name,
-                Image = x.Object.Image,
-            }).ToList();
-        }
+        //async void LoadData()
+        //{
+        //    DataList.ItemsSource = (await App.firebaseDatabase.Child("Category").OnceAsync<Category>()).Select(x => new Category
+        //    {
+        //        CatID = x.Object.CatID,
+        //        Name = x.Object.Name,
+        //        Image = x.Object.Image,
+        //    }).ToList();
+        //}
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {

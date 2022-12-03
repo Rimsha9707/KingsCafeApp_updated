@@ -16,15 +16,6 @@
                     <DataTemplate>
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
-                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
-                            <StackLayout Margin="30,20,0,0" Spacing="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-                                <Label Text="{Binding Heading}" TextColor="White" FontSize="12" FontAttributes="Bold"/>
-                                <BoxView BackgroundColor="White" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="1" WidthRequest="50"/>
-                                <StackLayout>
-                                    <Label Text="{Binding Message}" TextColor="White" FontSize="35" />
-                                    <Label Text="{Binding Caption}" TextColor="White" FontSize="12" />
-                                </StackLayout>
-                            </StackLayout>
                         </Grid>
                     </DataTemplate>
                 </cv:CarouselViewControl.ItemTemplate>

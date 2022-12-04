@@ -21,6 +21,15 @@
                         </Label.GestureRecognizers>
                     </Label>
 
+                    <Label Text=" | " TextColor="#ff914d" FontSize="16"/>
+
+                    <Label Text="Admin Panel" TextColor="#ff914d" FontSize="16">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedAdmin" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
+
                 </StackLayout>
             </StackLayout>
 

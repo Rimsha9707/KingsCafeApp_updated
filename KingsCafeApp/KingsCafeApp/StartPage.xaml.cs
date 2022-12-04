@@ -1,4 +1,5 @@
 ﻿using KingsCafeApp.Login;
+using KingsCafeApp.Views.Workers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,11 @@ namespace KingsCafeApp
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             App.Current.MainPage = new NavigationPage(new loginUser());
+        }
+
+        private void TapGestureRecognizer_TappedAdmin(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new NavigationPage(new Worker_Home());
         }
 
     }

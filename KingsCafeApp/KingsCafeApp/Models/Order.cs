@@ -16,5 +16,7 @@ namespace KingsCafeApp.Models
         public String Address { get; set; }
         public string PaymentMethod { get; set; }
         public string Status { get; set; }
+        public string AssignedRider { get; set; }
+
     }
 }

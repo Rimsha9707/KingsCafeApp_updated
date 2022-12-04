@@ -47,6 +47,9 @@
     <Compile Update="Views\Customer\OrderSuccess.xaml.cs">
       <DependentUpon>OrderSuccess.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Workers\RiderList.xaml.cs">
+      <DependentUpon>RiderList.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Workers\Wdesign.xaml.cs">
       <DependentUpon>Wdesign.xaml</DependentUpon>
     </Compile>

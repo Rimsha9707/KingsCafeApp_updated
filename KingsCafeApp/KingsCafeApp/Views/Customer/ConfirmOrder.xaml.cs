@@ -51,7 +51,8 @@ namespace KingsCafeApp.Views.Customer
                 Address = txtAddress.Text,
                 OrderDate = DateTime.Now.Date,
                 OrderTime = DateTime.Now.TimeOfDay,
-                Status = "Pending"
+                Status = "Pending",
+                AssignedRider = "N/A"
             };
 
             await App.firebaseDatabase.Child("Order").PostAsync(order);

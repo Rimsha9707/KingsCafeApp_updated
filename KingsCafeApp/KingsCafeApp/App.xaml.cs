@@ -32,7 +32,7 @@ namespace KingsCafeApp
         {
             InitializeComponent();
 
-            MainPage = new splashScreen();
+            MainPage = new StartPage();
         }
 
         protected override void OnStart()

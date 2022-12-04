@@ -1,4 +1,6 @@
-﻿using KingsCafeApp.Models;
+﻿using Firebase.Database.Query;
+using KingsCafeApp.Models;
+using KingsCafeApp.Views.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,23 +34,60 @@ namespace KingsCafeApp.Views.Workers
                 PaymentMethod = x.Object.PaymentMethod,
                 Phone = x.Object.Phone,
                 Name = x.Object.Name,
-                Status = x.Object.Status
+                Status = x.Object.Status,
+                AssignedRider = x.Object.AssignedRider
 
             }).ToList();
+            var item = DataList;
         }
         private void btnStatus_Clicked(object sender, EventArgs e)
         {
 
         }
 
-        private void DataList_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-
-        }
-
+       
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             App.Current.MainPage = new StartPage();
+        }
+
+        private async void DataList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            try
+            {
+                var selected = e.Item as Order;
+
+               
+                var item = (await App.firebaseDatabase.Child("Order").OnceAsync<Order>()).FirstOrDefault(a => a.Object.OrderID == selected.OrderID);
+                var choice = await DisplayActionSheet("Options", "Close", "Save", "Send to Delivered", "Send to Proceed");
+
+                if (choice == "Send to Proceed")
+                {
+                     App.Current.MainPage = new RiderList(item.Object);
+
+
+                }
+                if (choice == "Send to Delivered")
+                {
+                    item.Object.Status = "Delivered";
+                    await App.firebaseDatabase.Child("Order").Child(item.Key).PutAsync(item.Object);
+                    await DisplayAlert("Message", item.Object.OrderID + "'s" + " order is Delivered now.", "Ok");
+                }
+                //if (choice == "Edit")
+                //{
+                //    await Navigation.PushAsync(new Edit_Product(selected));
+
+                //}
+
+            }
+
+            catch (Exception ex)
+            {
+
+               
+                await DisplayAlert("Error", "Something went wrong, please try again later. \nError: " + ex.Message, "Ok");
+            }
+
         }
     }
 }

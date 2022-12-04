@@ -1,6 +1,7 @@
 ﻿using KingsCafeApp.LoginSystem;
 using KingsCafeApp.Models;
 using KingsCafeApp.Views.Admin;
+using KingsCafeApp.Views.Workers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,11 @@ namespace KingsCafeApp.Login
                     await DisplayAlert("Error", "Invalid Email or Password is incorrect", "ok");
                     LoadingInd.IsRunning = false;
                     return;
+                }
+                if (check.Object.Type=="Worker")
+                {
+                    App.Current.MainPage = new Worker_Home();
+                    LoadingInd.IsRunning = false;
                 }
                 else
                 {

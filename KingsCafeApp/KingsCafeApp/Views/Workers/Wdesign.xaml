@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Workers.Wdesign"
+             xmlns:local="clr-namespace:KingsCafeApp.Views.Workers"
+            NavigationPage.HasNavigationBar="False"
+            BarBackgroundColor="AntiqueWhite"
+            SelectedTabColor="AntiqueWhite"
+            UnselectedTabColor="{StaticResource Primary}"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Top">
+    <local:about Title="About" IconImageSource="about"/>
+    <local:about Title="About" IconImageSource="about"/>
+    <!--<ContentPage Title="About" IconImageSource="about">
+        <Label Text="welcome to about page"></Label>
+    </ContentPage> 
+    <ContentPage Title="Course" IconImageSource="courses">
+        <Label Text="welcome to Course page"></Label>
+    </ContentPage>-->
+</TabbedPage>

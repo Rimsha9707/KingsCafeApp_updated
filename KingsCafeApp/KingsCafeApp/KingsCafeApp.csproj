@@ -17,11 +17,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Admin\Add_Ingredient.xaml.cs">
+      <DependentUpon>Add_Ingredient.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Admin\Add_User.xaml.cs">
       <DependentUpon>Add_User.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Admin\Ingredient_Details.xaml.cs">
+      <DependentUpon>Ingredient_Details.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Admin\Edit_Ingredient.xaml.cs">
+      <DependentUpon>Edit_Ingredient.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Admin\Manage_Ingredient.xaml.cs">
+      <DependentUpon>Manage_Ingredient.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Admin\Manage_User.xaml.cs">
       <DependentUpon>Manage_User.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Admin\User_Details.xaml.cs">
+      <DependentUpon>User_Details.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Admin\Product_Details .xaml.cs">
       <DependentUpon>Product_Details .xaml</DependentUpon>
@@ -93,6 +108,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Admin\Edit_User.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Admin\Manage_Orders.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Customer\CartPage.xaml">

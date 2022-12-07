@@ -7,26 +7,28 @@
         <ToolbarItem  Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-
+        <ScrollView>
         <StackLayout Padding="20" Spacing="0">
             <Label Margin="0,0,0,20" FontSize="Large" Text="Order List" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <Frame BackgroundColor="AntiqueWhite" Padding="0">
                 <Grid Padding="0" HeightRequest="60">
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="80"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Margin="10,0,10,0" Text="ID" VerticalOptions="Center" Grid.Column="0"/>
+                    <Label Margin="10,0,10,0" Text="Name" VerticalOptions="Center" Grid.Column="0"/>
                     <Label Margin="10,0,10,0" Text="Status" VerticalOptions="Center" Grid.Column="1"/>
                     <Label Margin="10,0,10,0" Text="Date" VerticalOptions="Center" Grid.Column="2"/>
+                    <Label Margin="10,0,10,0" Text="Rider" VerticalOptions="Center" Grid.Column="3"/>
                    
                     <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0"/>
                     <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1"/>
                     <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2"/>
+                    <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="3"/>
                     
                 </Grid>
             </Frame>
@@ -39,7 +41,7 @@
                                 <Grid Padding="0" RowSpacing="0">
 
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="80"/>
                                         <ColumnDefinition Width="80"/>
                                         <ColumnDefinition Width="100"/>
                                         <ColumnDefinition Width="80"/>
@@ -62,5 +64,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

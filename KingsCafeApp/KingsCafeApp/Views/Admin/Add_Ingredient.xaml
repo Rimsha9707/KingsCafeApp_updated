@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Admin.Add_Ingredient" 
+             Title="Add new Ingredient" BackgroundColor="AntiqueWhite">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid>
+            <StackLayout Margin="15,110,15,0">
+                <Frame BackgroundColor="white" HasShadow="True" HeightRequest="400" HorizontalOptions="FillAndExpand">
+            <StackLayout Padding="12" VerticalOptions="CenterAndExpand">
+                <Image x:Name="PreviewPic" Source="category_picker.png" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                 <Entry x:Name="txtIngName" Placeholder="Ingredient Name" Keyboard="Chat"/>
+                 <Entry x:Name="txtIngPrice" Placeholder="Price" Keyboard="Chat"/>
+                 <Entry x:Name="txtIngType" Placeholder="Type" Keyboard="Chat"/>
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="False"/>
+                  <Button Text="Add Ingredient" x:Name="btnCat" CornerRadius="12" Clicked="btnCat_Clicked"></Button>
+            </StackLayout>
+        </Frame>
+       </StackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

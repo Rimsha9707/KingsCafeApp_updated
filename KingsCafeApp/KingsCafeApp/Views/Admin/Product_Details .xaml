@@ -6,10 +6,10 @@
     <ContentPage.Content>
         <ScrollView >
 
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="15" >
+            <StackLayout VerticalOptions="StartAndExpand" HeightRequest="800" HorizontalOptions="CenterAndExpand" Padding="15" >
                 <ActivityIndicator x:Name="LoadingInd" IsRunning="True"></ActivityIndicator>
-                <Image x:Name="txtProImage"  Source="{Binding FOOD_PRODUCT_PICTURE}"></Image>
-                <Grid ColumnDefinitions="200*,200*" Padding="20" RowDefinitions="30,30">
+                <Image x:Name="txtProImage" HeightRequest="200" WidthRequest="200" Source="{Binding FOOD_PRODUCT_PICTURE}"></Image>
+                <Grid ColumnDefinitions="200*,200*" Padding="20" HeightRequest="200" RowDefinitions="30,30">
                     <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource Primary}" Text="Product Name: "></Label>
                     <Label Grid.Row="0" Grid.Column="1" FontSize="Medium" x:Name="txtProName"></Label>
                     <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource Primary}" Text="Product Price: "></Label>

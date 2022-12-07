@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Admin.Ingredient_Details"
+             Title="Ingredient Details">
+    <ContentPage.Content>
+        <ScrollView >
+
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Padding="15" >
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="True"></ActivityIndicator>
+                <Image x:Name="image"  HeightRequest="200" WidthRequest="200" Source="category_picker.png"></Image>
+                <Grid ColumnDefinitions="200*,200*" Padding="20" RowDefinitions="30,30">
+                    <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource Primary}" Text="Ingredient Name: "></Label>
+                    <Label Grid.Row="0" Grid.Column="1" FontSize="Medium" x:Name="txtIngName"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource Primary}" Text="Price: "></Label>
+                    <Label Grid.Row="1" Grid.Column="1" FontSize="Medium" x:Name="txtIngPrice"></Label>
+                    <Label Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource Primary}" Text="Type: "></Label>
+                    <Label Grid.Row="2" Grid.Column="1" FontSize="Medium" x:Name="txtIngType"></Label>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
 ﻿using KingsCafeApp.LoginSystem;
+using KingsCafeApp.Views.AWR;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

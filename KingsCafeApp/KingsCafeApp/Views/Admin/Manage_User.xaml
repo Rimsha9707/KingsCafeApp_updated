@@ -13,7 +13,7 @@
             <ListView x:Name="DataList" ItemTapped="DataList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ImageCell  Text="{Binding Name}" Detail="{Binding Type}" >
+                        <ImageCell  Text="{Binding Name}" Detail="{Binding Type}" ImageSource="{Binding Image}" >
                             
                         </ImageCell>
                     </DataTemplate>

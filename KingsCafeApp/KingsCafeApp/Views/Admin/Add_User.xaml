@@ -6,14 +6,19 @@
     <ContentPage.Content>
         <ScrollView>
             <Grid>
-                <StackLayout Margin="15,110,15,0">
-                    <Frame BackgroundColor="white"  HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
+                <StackLayout Margin="15,50,15,0">
+                    <Frame BackgroundColor="white"  HasShadow="True" HeightRequest="600" HorizontalOptions="FillAndExpand">
                         <StackLayout Padding="12" Margin="0,0,0,0" VerticalOptions="CenterAndExpand">
+                            <Image x:Name="PreviewPic" Source="category_picker.png" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
                             <Entry x:Name="txtUserName" Placeholder="User Name" Keyboard="Chat"/>
                             <Entry Keyboard="Email" x:Name="txtUserEmail" Placeholder="User Email"/>
                             <Label x:Name="lblEmailValidation" IsVisible="true"></Label>
                             <Entry IsPassword="True" x:Name="txtUserPassword" Placeholder="Password" />
-                            <Label x:Name="lblPasswordValidation" IsVisible="False"></Label>
+                            <Label x:Name="lblPasswordValidation" IsVisible="true"></Label>
                             <Entry x:Name="txtUserStatus" Placeholder="Status" Keyboard="Chat"/>
 
                             <Picker Title="--Select Type--" x:Name="ddlUserType">

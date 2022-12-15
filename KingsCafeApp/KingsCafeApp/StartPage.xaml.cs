@@ -1,4 +1,6 @@
 ﻿using KingsCafeApp.Login;
+using KingsCafeApp.Views.Customer;
+using KingsCafeApp.Views.Riders;
 using KingsCafeApp.Views.Workers;
 using System;
 using System.Collections.Generic;
@@ -42,7 +44,7 @@ namespace KingsCafeApp
 
         private void TapGestureRecognizer_TappedAdmin(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage(new Worker_Home());
+            App.Current.MainPage = new NavigationPage(new Customization());
         }
 
     }

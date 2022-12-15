@@ -7,7 +7,7 @@
         <ScrollView>
         <Grid>
             <StackLayout Margin="15,110,15,0">
-                <Frame BackgroundColor="white" HasShadow="True" HeightRequest="400" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="white" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
             <StackLayout Padding="12" VerticalOptions="CenterAndExpand">
                 <Image x:Name="PreviewPic" Source="category_picker.png" >
                     <Image.GestureRecognizers>

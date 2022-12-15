@@ -59,14 +59,23 @@
     <Compile Update="Views\Admin\ManageCategory.xaml.cs">
       <DependentUpon>ManageCategory.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AWR\User_Profile.xaml.cs">
+      <DependentUpon>User_Profile.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Customer\OrderSuccess.xaml.cs">
       <DependentUpon>OrderSuccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Customer\Customization.xaml.cs">
+      <DependentUpon>Customization.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Workers\Worker_Profile.xaml.cs">
+      <DependentUpon>Worker_Profile.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Workers\RiderList.xaml.cs">
       <DependentUpon>RiderList.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Workers\Wdesign.xaml.cs">
-      <DependentUpon>Wdesign.xaml</DependentUpon>
+    <Compile Update="Views\Workers\Worker_Side.xaml.cs">
+      <DependentUpon>Worker_Side.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -110,7 +119,7 @@
     <EmbeddedResource Update="Views\Admin\Edit_User.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Admin\Manage_Orders.xaml">
+    <EmbeddedResource Update="Views\AWR\Manage_Orders.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Customer\CartPage.xaml">
@@ -143,13 +152,16 @@
     <EmbeddedResource Update="Views\Login.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Riders\Rider_Side.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\UserList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Workers\about.xaml">
+    <EmbeddedResource Update="Views\Workers\Worker_Profile.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Workers\Wdesign.xaml">
+    <EmbeddedResource Update="Views\Workers\Worker_Side.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Workers\Worker_Home.xaml">

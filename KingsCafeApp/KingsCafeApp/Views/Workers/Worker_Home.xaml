@@ -9,7 +9,8 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout Padding="20" Spacing="0">
-            <Label Margin="0,0,0,20" FontSize="Large" Text="Order List" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="False"></ActivityIndicator>
+                <Label Margin="0,0,0,20" FontSize="Large" Text="Order List" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <Frame BackgroundColor="AntiqueWhite" Padding="0">
                 <Grid Padding="0" HeightRequest="60">
 

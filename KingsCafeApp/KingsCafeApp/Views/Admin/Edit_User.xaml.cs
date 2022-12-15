@@ -1,5 +1,7 @@
 ﻿using Firebase.Database.Query;
 using KingsCafeApp.Models;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,9 @@ namespace KingsCafeApp.Views.Admin
     {
         public static User item = null;
         public static List<User> firebaseList = null;
+        public static bool IsNewPicSelected = false;
+        private MediaFile _mediaFile;
+        public static string PicPath = "category_picker.png";
         public Edit_User(User u)
         {
             InitializeComponent();
@@ -27,8 +32,79 @@ namespace KingsCafeApp.Views.Admin
             txtUserPassword.Text = u.Password;
             txtUserStatus.Text = u.Status;
             LoadingInd.IsRunning = false;
+            PreviewPic.Source = u.Image;
         }
 
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            try
+            {
+                var response = await DisplayActionSheet("Select Image Source", "Close", "", "From Gallery", "From Camera");
+                if (response == "From Camera")
+                {
+                    await CrossMedia.Current.Initialize();
+                    if (!CrossMedia.Current.IsTakePhotoSupported)
+                    {
+                        await DisplayAlert("Error", "Phone is not Take Photo Supported", "OK");
+                        return;
+                    }
+
+                    var mediaOptions = new StoreCameraMediaOptions()
+                    {
+                        PhotoSize = PhotoSize.Medium
+                    };
+
+                    var SelectedImg = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
+
+                    if (SelectedImg == null)
+                    {
+                        await DisplayAlert("Error", "Error Taking Image...", "OK");
+                        return;
+                    }
+
+                    _mediaFile = SelectedImg;
+                    PicPath = SelectedImg.Path;
+                    PreviewPic.Source = SelectedImg.Path;
+
+
+                }
+                if (response == "From Gallery")
+                {
+                    await CrossMedia.Current.Initialize();
+                    if (!CrossMedia.Current.IsPickPhotoSupported)
+                    {
+                        await DisplayAlert("Error", "Phone is not Pick Photo Supported", "OK");
+                        return;
+                    }
+
+                    var mediaOptions = new PickMediaOptions()
+                    {
+                        PhotoSize = PhotoSize.Medium
+                    };
+
+                    var SelectedImg = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+
+                    if (SelectedImg == null)
+                    {
+                        await DisplayAlert("Error", "Error Picking Image...", "OK");
+                        return;
+                    }
+
+                    _mediaFile = SelectedImg;
+                    PicPath = SelectedImg.Path;
+                    PreviewPic.Source = SelectedImg.Path;
+
+
+                }
+
+                IsNewPicSelected = true;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Message", "Something Went wrong \n" + ex.Message, "OK");
+
+            }
+        }
         public async void btnUser_Clicked(object sender, EventArgs e)
         {
             try
@@ -41,11 +117,23 @@ namespace KingsCafeApp.Views.Admin
                 }
                 if (ddlUserType.SelectedItem == null)
                 {
-                    await DisplayAlert("Error", "Please Select required Category and try again", "Ok");
+                    await DisplayAlert("Error", "Please Select required Type and try again", "Ok");
                     return;
                 }
 
                 LoadingInd.IsRunning = true;
+                string img = item.Image;
+
+                if (IsNewPicSelected == true)
+                {
+                    var StoredImageURL = await App.FirebaseStorage
+                    .Child("USER_PICTURE")
+                    .Child(item.UserID.ToString() + "_" + txtUserName.Text + ".jpg")
+                    .PutAsync(_mediaFile.GetStream());
+
+                    img = StoredImageURL;
+
+                }
 
                 var OldUser = (await App.firebaseDatabase.Child("User").OnceAsync<User>()).FirstOrDefault(x => x.Object.UserID == item.UserID);
 
@@ -55,6 +143,7 @@ namespace KingsCafeApp.Views.Admin
                 OldUser.Object.Status = txtUserStatus.Text;
                 OldUser.Object.Password = txtUserPassword.Text;
                 OldUser.Object.Type = lblUserType.Text;
+                OldUser.Object.Image = img;
 
 
                 await App.firebaseDatabase.Child("User").Child(OldUser.Key).PutAsync(OldUser.Object);
@@ -75,7 +164,7 @@ namespace KingsCafeApp.Views.Admin
             lblUserType.Text=ddlUserType.SelectedItem.ToString();
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped1(object sender, EventArgs e)
         {
             ddlUserType.IsVisible = true;
         }

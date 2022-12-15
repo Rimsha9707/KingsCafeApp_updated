@@ -1,5 +1,7 @@
 ﻿using Firebase.Database.Query;
 using KingsCafeApp.Models;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,82 @@ namespace KingsCafeApp.Views.Admin
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Add_User : ContentPage
     {
+        private MediaFile _mediaFile;
+        public static string PicPath = "category_picker.png";
         public Add_User()
         {
             InitializeComponent();
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            try
+            {
+                var response = await DisplayActionSheet("Select Image Source", "Close", "", "From Gallery", "From Camera");
+                if (response == "From Camera")
+                {
+                    await CrossMedia.Current.Initialize();
+                    if (!CrossMedia.Current.IsTakePhotoSupported)
+                    {
+                        await DisplayAlert("Error", "Phone is not Take Photo Supported", "OK");
+                        return;
+                    }
+
+                    var mediaOptions = new StoreCameraMediaOptions()
+                    {
+                        PhotoSize = PhotoSize.Medium
+                    };
+
+                    var SelectedImg = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
+
+                    if (SelectedImg == null)
+                    {
+                        await DisplayAlert("Error", "Error Taking Image...", "OK");
+                        return;
+                    }
+
+                    _mediaFile = SelectedImg;
+                    PicPath = SelectedImg.Path;
+                    PreviewPic.Source = SelectedImg.Path;
+
+
+                }
+                if (response == "From Gallery")
+                {
+                    await CrossMedia.Current.Initialize();
+                    if (!CrossMedia.Current.IsPickPhotoSupported)
+                    {
+                        await DisplayAlert("Error", "Phone is not Pick Photo Supported", "OK");
+                        return;
+                    }
+
+                    var mediaOptions = new PickMediaOptions()
+                    {
+                        PhotoSize = PhotoSize.Medium
+                    };
+
+                    var SelectedImg = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+
+                    if (SelectedImg == null)
+                    {
+                        await DisplayAlert("Error", "Error Picking Image...", "OK");
+                        return;
+                    }
+
+                    _mediaFile = SelectedImg;
+                    PicPath = SelectedImg.Path;
+                    PreviewPic.Source = SelectedImg.Path;
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Message", "Something Went wrong \n" + ex.Message, "OK");
+
+            }
+        }
+
 
         //================for validations=====================
         private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
@@ -86,15 +160,6 @@ namespace KingsCafeApp.Views.Admin
                     return;
                 }
 
-                //var check = (await App.firebaseDatabase.Child("User").OnceAsync<User>()).FirstOrDefault(x => x.Object.Name == txtUserName.Text);
-
-                //if (check != null)
-                //{
-                //    await DisplayAlert("Error", check.Object.Name + " is already added", "ok");
-                //    return;
-
-                //}
-
                 LoadingInd.IsRunning = true;
                 int LastID, NewID = 1;
 
@@ -104,6 +169,12 @@ namespace KingsCafeApp.Views.Admin
                     LastID = (await App.firebaseDatabase.Child("User").OnceAsync<User>()).Max(a => a.Object.UserID);
                     NewID = ++LastID;
                 }
+
+                var StoredImageURL = await App.FirebaseStorage
+                     .Child("USER_PICTURE")
+                     .Child(NewID + "_" + txtUserName.Text + ".jpg")
+                     .PutAsync(_mediaFile.GetStream());
+
                 string Utype = ddlUserType.SelectedItem.ToString();
                 User u = new User()
                 {
@@ -113,6 +184,7 @@ namespace KingsCafeApp.Views.Admin
                     Password = txtUserPassword.Text,
                     Email = txtUserEmail.Text,
                     Type = Utype,
+                    Image = StoredImageURL
                 };
 
                 await App.firebaseDatabase.Child("User").PostAsync(u);

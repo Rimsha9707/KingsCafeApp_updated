@@ -59,7 +59,7 @@ namespace KingsCafeApp.Views.Admin
                 if (choice == "Assign Order")
                 {
                     orderToAssign.Object.AssignedRider = selected.Name;
-                    o.Status = "Assigned";
+                    orderToAssign.Object.Status= "Ready";
                     await App.firebaseDatabase.Child("Order").Child(orderToAssign.Key).PutAsync(orderToAssign.Object);
 
                 }

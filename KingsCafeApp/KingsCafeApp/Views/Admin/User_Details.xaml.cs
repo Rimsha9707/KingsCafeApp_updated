@@ -18,7 +18,7 @@ namespace KingsCafeApp.Views.Admin
             InitializeComponent();
             LoadingInd.IsRunning = true;
             txtUserName.Text = u.Name;
-            //txtUserImage.Source = u.Image;
+            txtUserImage.Source = u.Image;
             txtUserEmail.Text = u.Email;
             txtUserStatus.Text = u.Status;
             lblUserType.Text = u.Type;

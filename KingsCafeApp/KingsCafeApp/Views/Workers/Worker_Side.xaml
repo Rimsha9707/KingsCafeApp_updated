@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Workers.Worker_Side"
+             xmlns:local="clr-namespace:KingsCafeApp.Views.Workers"
+            NavigationPage.HasNavigationBar="False"
+            BarBackgroundColor="AntiqueWhite"
+            SelectedTabColor="Black"
+            UnselectedTabColor="{StaticResource Primary}"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" xmlns:local1="clr-namespace:KingsCafeApp.Views.AWR"
+            android:TabbedPage.ToolbarPlacement="Top"
+            Title="Worker Home">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem  Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        <ToolbarItem IconImageSource="ic_Person.png"  x:Name="Profile" Clicked="Profile_Clicked"></ToolbarItem>
+    </TabbedPage.ToolbarItems>
+    <local1:Manage_Orders Title="Orders" IconImageSource="ic_order.png"/>
+    <local:Worker_Home Title="Home" IconImageSource="ic_people.png"/>
+    <!--<ContentPage Title="About" IconImageSource="about">
+        <Label Text="welcome to about page"></Label>
+    </ContentPage> 
+    <ContentPage Title="Course" IconImageSource="courses">
+        <Label Text="welcome to Course page"></Label>
+    </ContentPage>-->
+</TabbedPage>

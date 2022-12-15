@@ -23,12 +23,12 @@
         </cv:CarouselViewControl>
             
 <!--//======================== categories bar================//-->
-                <CollectionView x:Name="DataList1" HeightRequest="50" Margin="8" ItemsLayout="HorizontalList">
+                <CollectionView x:Name="DataList1" SelectionMode="Single" SelectionChanged="DataList1_SelectionChanged" HeightRequest="50" Margin="8" ItemsLayout="HorizontalList">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout VerticalOptions="CenterAndExpand">
-                                <Label VerticalOptions="CenterAndExpand"  BackgroundColor="#ff914d" TextColor="White" Margin="4" Padding="8"  HorizontalTextAlignment="Center"  Text="{Binding Name}"></Label>
-                                </StackLayout>
+                            <StackLayout VerticalOptions="CenterAndExpand" WidthRequest="100">
+                                <Label VerticalOptions="CenterAndExpand" BackgroundColor="#ff914d" TextColor="White" Margin="4" Padding="8"  HorizontalTextAlignment="Center"  Text="{Binding Name}"></Label>
+                            </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

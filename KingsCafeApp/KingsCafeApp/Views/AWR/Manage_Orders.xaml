@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KingsCafeApp.Views.Admin.Manage_Orders" Title="Manage Orders">
+             x:Class="KingsCafeApp.Views.AWR.Manage_Orders" Title="Manage Orders">
     <ContentPage.ToolbarItems>
         <ToolbarItem  Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
@@ -19,6 +19,9 @@
                             <x:String>Canceled</x:String>
                         </Picker.Items>
                     </Picker>
+                    <!--<Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource Primary}"  Text="Select Status:"></Label>
+                    <syncfusion:SfCalendar Grid.Row="1" Grid.Column="1" x:Name="calendar" SelectionMode="SingleSelection"/>-->
+                    
                 </Grid>
                 <Label Margin="0,0,0,20" FontSize="Large" Text="Order List" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 <Frame BackgroundColor="AntiqueWhite" Padding="0">

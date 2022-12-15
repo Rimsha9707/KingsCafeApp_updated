@@ -1,6 +1,7 @@
 ﻿using KingsCafeApp.LoginSystem;
 using KingsCafeApp.Models;
 using KingsCafeApp.Views.Admin;
+using KingsCafeApp.Views.Riders;
 using KingsCafeApp.Views.Workers;
 using System;
 using System.Collections.Generic;
@@ -44,10 +45,17 @@ namespace KingsCafeApp.Login
                 }
                 if (check.Object.Type=="Worker")
                 {
-                    App.Current.MainPage = new Worker_Home();
+                    //App.Current.MainPage = new Worker_Home();
+                    App.Current.MainPage = new Worker_Side();
                     LoadingInd.IsRunning = false;
                 }
-                else
+                if (check.Object.Type == "Rider")
+                {
+                    //App.Current.MainPage = new Worker_Home();
+                    App.Current.MainPage = new Rider_Side(check.Object);
+                    LoadingInd.IsRunning = false;
+                }
+                if (check.Object.Type == "Admin")
                 {
                     //await Navigation.PushAsync(new Userlist());
 

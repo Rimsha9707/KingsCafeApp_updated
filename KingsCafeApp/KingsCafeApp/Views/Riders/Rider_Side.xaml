@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Riders.Rider_Side">
+  <!--Pages can be added as references or inline-->
+    <!--======================== new assigned orders view ==========================-->
+    <ContentPage Title="New Orders">
+        <ContentPage.ToolbarItems>
+            <!--<ToolbarItem x:Name="RProfile" Clicked="Profile_Clicked" IconImageSource="ic_Person.png"></ToolbarItem>-->
+            <ToolbarItem  Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        </ContentPage.ToolbarItems>
+
+        <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="0">
+                <Label Margin="0,0,0,20" FontSize="Large" Text="Order List" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Frame BackgroundColor="AntiqueWhite" Padding="0">
+                    <Grid Padding="0" HeightRequest="60">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Margin="10,0,10,0" Text="Name" VerticalOptions="Center" Grid.Column="0"/>
+                        <Label Margin="10,0,10,0" Text="Status" VerticalOptions="Center" Grid.Column="1"/>
+                        <Label Margin="10,0,10,0" Text="Date" VerticalOptions="Center" Grid.Column="2"/>
+                        <Label Margin="10,0,10,0" Text="Rider" VerticalOptions="Center" Grid.Column="3"/>
+
+                        <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0"/>
+                        <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1"/>
+                        <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2"/>
+                        <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="3"/>
+
+                    </Grid>
+                </Frame>
+
+                <ListView x:Name="DataList" ItemTapped="DataList_ItemTapped" SeparatorVisibility="None" SelectedItem="">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <Frame Padding="0" BorderColor="AntiqueWhite">
+                                    <Grid Padding="0" RowSpacing="0">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="80"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Margin="10,0,10,0" FontSize="Small" Text="{Binding Name}" VerticalOptions="Center" Grid.Column="0"/>
+                                        <Label Margin="10,0,10,0" FontSize="Small" Text="{Binding Status}" VerticalOptions="Center" Grid.Column="1"/>
+                                        <Label Margin="10,0,10,0" FontSize="Small" Text="{Binding OrderDate}" VerticalOptions="Center" Grid.Column="2"/>
+                                        <Label Margin="10,0,10,0" FontSize="Small" Text="{Binding AssignedRider}" VerticalOptions="Center" Grid.Column="3"/>
+
+                                        <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0"/>
+                                        <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1"/>
+                                        <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2"/>
+                                        <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="3"/>
+
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+    
+    <!--==============================delivered orders view===========================-->
+    <ContentPage Title="Delivered Orders" >
+        <!--<ContentPage.ToolbarItems>
+            <ToolbarItem x:Name="Profile" Clicked="Profile_Clicked" IconImageSource="ic_Person.png"></ToolbarItem>
+            <ToolbarItem  Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        </ContentPage.ToolbarItems>-->
+        
+        <ContentPage.Content>
+            <ScrollView>
+                <StackLayout Padding="20" Spacing="0">
+                    <Label Margin="0,0,0,20" FontSize="Large" Text="Order List" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Frame BackgroundColor="AntiqueWhite" Padding="0">
+                        <Grid Padding="0" HeightRequest="60">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Margin="10,0,10,0" Text="Name" VerticalOptions="Center" Grid.Column="0"/>
+                            <Label Margin="10,0,10,0" Text="Status" VerticalOptions="Center" Grid.Column="1"/>
+                            <Label Margin="10,0,10,0" Text="Date" VerticalOptions="Center" Grid.Column="2"/>
+                            <Label Margin="10,0,10,0" Text="Rider" VerticalOptions="Center" Grid.Column="3"/>
+
+                            <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0"/>
+                            <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1"/>
+                            <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2"/>
+                            <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="3"/>
+
+                        </Grid>
+                    </Frame>
+
+                    <ListView x:Name="DataList1" ItemTapped="DataList1_ItemTapped" SeparatorVisibility="None" SelectedItem="">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell >
+                                    <Frame Padding="0" BorderColor="AntiqueWhite">
+                                        <Grid Padding="0" RowSpacing="0">
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="80"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Margin="10,0,10,0" FontSize="Small" Text="{Binding Name}" VerticalOptions="Center" Grid.Column="0"/>
+                                            <Label Margin="10,0,10,0" FontSize="Small" Text="{Binding Status}" VerticalOptions="Center" Grid.Column="1"/>
+                                            <Label Margin="10,0,10,0" FontSize="Small" Text="{Binding OrderDate}" VerticalOptions="Center" Grid.Column="2"/>
+                                            <Label Margin="10,0,10,0" FontSize="Small" Text="{Binding AssignedRider}" VerticalOptions="Center" Grid.Column="3"/>
+
+                                            <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0"/>
+                                            <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1"/>
+                                            <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2"/>
+                                            <BoxView BackgroundColor="AntiqueWhite" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Grid.Column="3"/>
+
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

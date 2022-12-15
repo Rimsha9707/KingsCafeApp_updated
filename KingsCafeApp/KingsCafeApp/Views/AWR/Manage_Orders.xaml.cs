@@ -1,5 +1,6 @@
 ﻿using Firebase.Database.Query;
 using KingsCafeApp.Models;
+using KingsCafeApp.Views.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace KingsCafeApp.Views.Admin
+namespace KingsCafeApp.Views.AWR
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Manage_Orders : ContentPage
@@ -88,6 +89,24 @@ namespace KingsCafeApp.Views.Admin
                 await DisplayAlert("Error", "Something went wrong, please try again later. \nError: " + ex.Message, "Ok");
             }
 
+        }
+
+        private  async void Filtering_Clicked(object sender, EventArgs e)
+        {
+            var data = (await App.firebaseDatabase.Child("Order").OnceAsync<Order>()).Select(item => new Order
+            {
+                Address = item.Object.Address,
+                DeliveryDate = item.Object.DeliveryDate,
+                Email = item.Object.Email,
+                OrderDate = item.Object.OrderDate,
+                OrderID = item.Object.OrderID,
+                OrderTime = item.Object.OrderTime,
+                PaymentMethod = item.Object.PaymentMethod,
+                Phone = item.Object.Phone,
+                Name = item.Object.Name,
+                Status = item.Object.Status
+
+            }).Where(x => x.Status == "Ready");
         }
     }
 }

@@ -48,6 +48,7 @@ namespace KingsCafeApp.Views.Admin
                 Password = x.Object.Password,
                 Type = x.Object.Type,
                 Status = x.Object.Status,
+                Image=x.Object.Image
             }).ToList();
         }
 

@@ -18,8 +18,10 @@ namespace KingsCafeApp.Views.Workers
 
         public Worker_Home()
         {
+            //LoadingInd.IsRunning = true;
             InitializeComponent();
             LoadData();
+            //LoadingInd.IsRunning = false;
         }
         async void LoadData()
         {
@@ -40,11 +42,6 @@ namespace KingsCafeApp.Views.Workers
             }).ToList();
             var item = DataList;
         }
-        private void btnStatus_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
        
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
@@ -73,11 +70,19 @@ namespace KingsCafeApp.Views.Workers
                     await App.firebaseDatabase.Child("Order").Child(item.Key).PutAsync(item.Object);
                     await DisplayAlert("Message", item.Object.OrderID + "'s" + " order is Delivered now.", "Ok");
                 }
-                //if (choice == "Edit")
-                //{
-                //    await Navigation.PushAsync(new Edit_Product(selected));
-
-                //}
+                if (choice == "Send to Delivered")
+                {
+                    item.Object.Status = "Delivered";
+                    await App.firebaseDatabase.Child("Order").Child(item.Key).PutAsync(item.Object);
+                    await DisplayAlert("Message", item.Object.OrderID + "'s" + " order is Delivered now.", "Ok");
+                }
+                if (choice == "Send to Delivered")
+                {
+                    item.Object.Status = "Delivered";
+                    await App.firebaseDatabase.Child("Order").Child(item.Key).PutAsync(item.Object);
+                    await DisplayAlert("Message", item.Object.OrderID + "'s" + " order is Delivered now.", "Ok");
+                }
+           
 
             }
 

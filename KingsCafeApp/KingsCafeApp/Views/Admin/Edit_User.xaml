@@ -5,11 +5,16 @@
              Title="Edit User">
     <ContentPage.Content>
         <StackLayout Padding="34" VerticalOptions="CenterAndExpand">
+            <Image x:Name="PreviewPic" Source="category_picker.png" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
             <Entry x:Name="txtUserName" Placeholder="User Name" Keyboard="Chat"/>
             <Entry Keyboard="Email" x:Name="txtUserEmail" Placeholder="User Email"/>
             <Label x:Name="lblEmailValidation" IsVisible="true"></Label>
             <Entry IsPassword="True" x:Name="txtUserPassword" Placeholder="Password" />
-            <Label x:Name="lblPasswordValidation" IsVisible="False"></Label>
+            <Label x:Name="lblPasswordValidation" IsVisible="true"></Label>
             <Entry x:Name="txtUserStatus" Placeholder="Status" Keyboard="Chat"/>
 
             <StackLayout Orientation="Horizontal">
@@ -18,7 +23,7 @@
 
                 <Label Text="Change" FontSize="Medium" TextColor="{StaticResource Primary}" HorizontalOptions="EndAndExpand" x:Name="lblUTypeChange">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped1" />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
